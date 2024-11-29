@@ -1,0 +1,44 @@
+npm init
+
+npm install mysql2 mongodb dotenv
+
+
+bash$ mongosh
+
+Current Mongosh Log ID:	6749b414a5514e8679a26a12
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.6
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+
+
+bash$ sudo service mongod status
+○ mongod.service - MongoDB Database Server
+     Loaded: loaded (/usr/lib/systemd/system/mongod.service; disabled; preset: enabled)
+     Active: inactive (dead)
+       Docs: https://docs.mongodb.org/manual
+
+
+bash$ sudo service mongod start
+bash$ sudo service mongod status
+● mongod.service - MongoDB Database Server
+     Loaded: loaded (/usr/lib/systemd/system/mongod.service; disabled; preset: enabled)
+     Active: active (running) since Fri 2024-11-29 18:03:43 IST; 2s ago
+       Docs: https://docs.mongodb.org/manual
+   Main PID: 25927 (mongod)
+     Memory: 74.4M (peak: 74.4M)
+        CPU: 89ms
+     CGroup: /system.slice/mongod.service
+             └─25927 /usr/bin/mongod --config /etc/mongod.conf
+
+Nov 29 18:03:43 ubuntu systemd[1]: Started mongod.service - MongoDB Database Server.
+
+bash$ mongosh
+
+show dbs 
+
+use etl_demo
+
+show collections 
+
+// db.articles.drop()
+
+db.articles.find()
